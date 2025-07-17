@@ -2,11 +2,40 @@
 <html>
     <head>
     <title>Мой todo list</title>
-    <!-- Это название страницы, выводится в браузере -->
      <meta charset="utf-8">
+     <style>
+        body {background-color: mediumslateblue;
+            font-family: system-ui;
+}
+h1 {}
+     </style>
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1"></head>
-<body> 
+<body> selector {
+  color: mediumslateblue;
+}
+text-align: center;
+  margin: 10;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px;
+}
+input {
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px;
+}
+.tdItem {
+  text-align: left;
+  padding: 10px;
+  cursor: default;
+  border-radius: 7px;
+}
+.tdItem:hover {
+  background-color: lightblue;
+}
 <div class="container" style="width: 400px; margin: auto;">
     <h2 class="todo__caption">Мой todo list</h2>
     <div id="tdlApp"><input type="text" class="form-control" placeholder="Новая задача">
@@ -16,9 +45,14 @@
         <div>Написать код для модуля<button>class="btn delete-btn">X</button></div>
         </div>
 <div class="btns-containers">
-    <button class="btn" onclick="additem(ДОБАВИТЬ)"></button>
-    <button class="btn" onclick="clearlist(Очистить)></button>
+    <button class="btn" onclick="additem()">+ДОБАВИТЬ</button>
+    <button class="btn" onclick="clearlist()">+Очистить</button>
 </div>
 </div>
     </body>
+    <body> {
+  
+
+    </body>
 </html>
+
