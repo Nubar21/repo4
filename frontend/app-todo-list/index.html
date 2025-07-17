@@ -5,17 +5,48 @@
     <!-- Это название страницы, выводится в браузере -->
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body> selector {
+  color: mediumslateblue;
+}
+text-align: center;
+  margin: 10;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px;
+}
+input {
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 16px;
+}
+.tdItem {
+  text-align: left;
+  padding: 10px;
+  cursor: default;
+  border-radius: 7px;
+}
+.tdItem:hover {
+  background-color: lightblue;
+}
 <div class="container" style="width: 400px; margin: auto;">
-    <h2 class="todo__caption">Мой тестовый лист задач</h2>
+    <h2 class="todo__caption">Мой todo list</h2>
     <div id="tdlApp"><input type="text" class="form-control" placeholder="Новая задача">
-    <di class="tdlDiv">
-      <class class="tdList list-unstyled">
-       </class> 
-       <ul>
-        
-       </ul>
-       <style type="text/css">
+    <div class="list">
+        <div>Изучить html<button>class="btn delete-btn">X</button></div>
+        <div>Освоить CSS<button>class="btn delete-btn">X</button></div>
+        <div>Написать код для модуля<button>class="btn delete-btn">X</button></div>
+        </div>
+<div class="btns-containers">
+    <button class="btn" onclick="additem()">+ДОБАВИТЬ</button>
+    <button class="btn" onclick="clearlist()">+Очистить</button>
+</div>
+</div>
+    </body>
+    <body> {
+  
 
-       </style>
-       </div>
+    </body>
+</html>
