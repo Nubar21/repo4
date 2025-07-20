@@ -1,1 +1,105 @@
-<!DOCTYPE html>
+body {background-color: mediumslateblue;
+            font-family: system-ui;
+}
+.center {font-style: Times;
+    font-weight: normal;
+    font-size: 150%;
+    text-align: center;
+    text-shadow: rgb(244, 243, 240) 1px 0 10px;
+    }
+.todo__caption { font-style: Times;
+    font-weight: normal;
+    font-size: 100%;
+    text-align: center;
+}
+.form-control {
+    color: #191970;
+    border-top-right-radius: 90px;
+  border-bottom-left-radius: 80px;
+}
+.container {border-radius: 10%;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;  
+     align: center;   
+    }
+    .container {border-radius: 10%;
+        color:#191970;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;  
+    }    
+    .list {border-radius: 5%;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;     
+    }
+         .container {border-radius: 10%;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;   
+     align: center;  
+    }
+         .btn {display: inline-block;
+            border-radius: 10%;
+            color: #008000;
+    }
+        .container {border-radius: 10%;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;     
+     align: center;
+    }
+     .btn {display: inline-block;
+        border-radius: 50%;
+            color: #008000;
+    }
+        .container {border-radius: 10%;
+        text-align: center;
+     font-size: 105%;
+     background-color: ivory;
+      width: 50%;
+     height: 500;
+     padding: 10px 10px 30px 70px;
+     white-space: nowrap;     
+     align: center;
+    }
+     .btn {display: inline-block;
+        border-radius: 50%;
+            color: #008000;
+    }
+     footer {font-size: 90%;
+    font-weight: normal;
+    font: Noto Sans;
+    text-align: center;
+    }
+
+        .site-footer {font-style: Times;
+    font-weight: normal;
+    font-size: 150%;
+    text-align: center;
+    text-shadow: rgb(244, 243, 240) 1px 0 10px;
+    text-align:center;
+    margin-top: 270px;
+    margin-left: 170px;
+        }
