@@ -1,23 +1,33 @@
 body {background-color: mediumslateblue;
             font-family: system-ui;
 }
-.center {font-style: Times;
+.todo__box {font-style: Times;
     font-weight: normal;
     font-size: 150%;
     text-align: center;
     text-shadow: rgb(244, 243, 240) 1px 0 10px;
     }
-.todo__caption { font-style: Times;
+.todo__title { font-style: Times;
     font-weight: normal;
     font-size: 100%;
     text-align: center;
+
+}
+.todo-input {
+    width: 190px;
+    font-size: medium;
+}
+
+.todo-btn {
+    font-size: medium;
 }
 .form-control {
-    color: #191970;
-    border-top-right-radius: 90px;
-  border-bottom-left-radius: 80px;
+    margin-right: 40px;
+    margin-left: 30px;
+    margin-top: 13px;
+    margin-bottom: 13px;
 }
-.container {border-radius: 10%;
+.todo__row {border-radius: 10%;
         text-align: center;
      font-size: 105%;
      background-color: ivory;
@@ -27,79 +37,51 @@ body {background-color: mediumslateblue;
      white-space: nowrap;  
      align: center;   
     }
-    .container {border-radius: 10%;
-        color:#191970;
+    .checked {border-radius: 15%;
         text-align: center;
-     font-size: 105%;
-     background-color: ivory;
+     font-size: 100%;
       width: 50%;
      height: 500;
-     padding: 10px 10px 30px 70px;
-     white-space: nowrap;  
-    }    
-    .list {border-radius: 5%;
-        text-align: center;
-     font-size: 105%;
-     background-color: ivory;
-      width: 50%;
-     height: 500;
-     padding: 10px 10px 30px 70px;
+     padding: 30px 10px 30px 10px;
      white-space: nowrap;     
+  align-items: center;
     }
-         .container {border-radius: 10%;
+         .todo {border-radius: 17%;
         text-align: center;
-     font-size: 105%;
+     font-size: 80%;
      background-color: ivory;
-      width: 50%;
-     height: 500;
-     padding: 10px 10px 30px 70px;
+      width: 600px;
+     height: 700;
+     padding: 20px 30px 30px 70px;
      white-space: nowrap;   
-     align: center;  
+     align: center; 
+     display: grid;
+  place-items: center;
+  margin-top: 60px;
+  margin-left: 420px;
     }
          .btn {display: inline-block;
-            border-radius: 10%;
             color: #008000;
-    }
-        .container {border-radius: 10%;
-        text-align: center;
-     font-size: 105%;
-     background-color: ivory;
-      width: 50%;
-     height: 500;
-     padding: 10px 10px 30px 70px;
-     white-space: nowrap;     
-     align: center;
-    }
-     .btn {display: inline-block;
-        border-radius: 50%;
-            color: #008000;
-    }
-        .container {border-radius: 10%;
-        text-align: center;
-     font-size: 105%;
-     background-color: ivory;
-      width: 50%;
-     height: 500;
-     padding: 10px 10px 30px 70px;
-     white-space: nowrap;     
-     align: center;
-    }
-     .btn {display: inline-block;
-        border-radius: 50%;
-            color: #008000;
-    }
-     footer {font-size: 90%;
-    font-weight: normal;
-    font: Noto Sans;
-    text-align: center;
+            margin-right: 20px;
     }
 
-        .site-footer {font-style: Times;
-    font-weight: normal;
-    font-size: 150%;
-    text-align: center;
-    text-shadow: rgb(244, 243, 240) 1px 0 10px;
-    text-align:center;
-    margin-top: 270px;
-    margin-left: 170px;
-        }
+    .todo-list li span{
+display: flex;
+position: absolute;
+top: 5px;
+width: 40px;
+height: 40px;
+position: relative;
+    }
+    .checkbox {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    display: flex;
+    }
+
+.completed {
+    color: gray;
+    text-decoration: line-through;
+}

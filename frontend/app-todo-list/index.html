@@ -4,26 +4,25 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>Мой todo list</title>
-     <link 
-     rel="stylesheet" 
-     href="styles.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1"></head>
-<p class="center">📝 Мой ToDo List</p>
-<h2 class="todo__caption">Организуйте свои задачи эффективно</h2>
-<div class="container" style="margin: auto;">
-    <div id="tdlApp"><input type="text" class="form-control" placeholder="Новая задача"> <button class="btn" onclick="additem()">Добавить</button>
-    <div class="list">
-        <div class="container"><input type="checkbox" class="form-control" placeholder="">Погулять с собакой<button class="btn" onclick="clearlist ()">Удалить</button></div>
-        <div class="container"><input type="checkbox" class="form-control" placeholder="">Купить продукты<button class="btn" onclick="clearlist ()">Удалить</button></div> 
-        <div class="container"><input type="checkbox" class="form-control" placeholder=" ">Заняться спортом<button class="btn" onclick="clearlist ()">Удалить</button></div> 
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="styles.css" />
+     </head>
+
+<body>
+<div class="todo">
+        <div class="todo__box">
+            <h2 class="todo__title">Список задач</h2>
+            <form id="todo-form" class="todo__row">
+                <input id="todo-input" class="todo-input" type="text" placeholder="Введите задачу">
+                <button class="todo-btn">Добавить</button>
+            </form>
+            <ul id="todo-list" class="todo__list">
+            </ul>
         </div>
-</div>
- 
-</div>
+    </div>
+
+
+<script src="code.js"></script>
  </body>
-    <footer>
-        <form>
-        <h3 class="site-footer">Это статичная версия. Для интерактивности нужен JavaScript</h3>
-        </form>
-    </footer>
+   
 </html>
