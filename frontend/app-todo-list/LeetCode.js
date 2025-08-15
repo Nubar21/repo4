@@ -1,4 +1,4 @@
-//готовое решение первой задачи
+//решение первой задачи
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -15,7 +15,7 @@ let twoSum = function(nums, target) {
     return [];
 };
 
-//готовое решение второй задачи
+//решение второй задачи
 /**
  * @param {number} x
  * @return {boolean}
@@ -26,7 +26,7 @@ var isPalindrome = function(x) {
   return str === reversedStr;
 };
 
-//готовое решение третьей задачи
+//решение третьей задачи
 /**
  * @param {string} s
  * @return {number}
@@ -56,6 +56,30 @@ let i;
     return sum;
 };
 
-//готовое решение четвертой задачи
+//решение четвертой задачи
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    const map = {
+        ')': '(',
+        '}': '{',
+        ']': '[',
+    }
+    const stack = [];
+    for (const char of s) {
+    if (char === '(' || char === '{' || char === '[') {
+    stack.push (char);
+    } else if (stack.length === 0) {
+                return false;
+            }
+            const lastOpen = stack.pop();
+                if (map[char] !== lastOpen) {
+                return true;
+            }
+}
+};
 
-//готовое решение пятой задачи
+
+//решение пятой задачи
