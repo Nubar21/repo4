@@ -69,17 +69,21 @@ var isValid = function(s) {
     }
     const stack = [];
     for (const char of s) {
-    if (char === '(' || char === '{' || char === '[') {
+        console.log(char)
+    if (!map[char]) {
     stack.push (char);
-    } else if (stack.length === 0) {
+    } else {
+            const lastOpen = stack.pop();
+            if (map[char] !== lastOpen) {
                 return false;
             }
-            const lastOpen = stack.pop();
-                if (map[char] !== lastOpen) {
-                return true;
-            }
-}
+        }
+    }
+    if (stack.length === 0) {
+        return true;
+    } else {
+        return false;
+    }
 };
-
 
 //решение пятой задачи
