@@ -4,59 +4,37 @@ const todoInput = document.getElementById('todo-input');
 const todoForm = document.getElementById('todo-form');
 const todoList = document.getElementById('todo-list');
 
+// Загрузка задач из localStorage
 function loadTasks() {
     const storedTasks = localStorage.getItem('tasks');
     if (storedTasks) {
         tasks = JSON.parse(storedTasks);
         if (tasks.length > 0) {
-            // Находим минимальный и максимальный id
-            let maxId = 0;
-            for (let task of tasks) {
-                if (task.id > maxId) {
-                    maxId = task.id;
-                }
-            }
-            nextId = maxId + 1;
-
             // Восстанавливаем задачи на странице
             tasks.forEach(task => createTaskElement(task));
         }
     }
 }
 
-const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-        tasks = JSON.parse(storedTasks);
-        if (tasks.length > 0) {
-            // Находим минимальный и максимальный id
-            let maxId = 0;
-            for (let task of tasks) {
-                if (task.id > maxId) {
-                    maxId = task.id;
-                }
-            }
-            nextId = maxId + 1;
-
-            // Восстанавливаем задачи на странице
-            tasks.forEach(task => createTaskElement(task));
-        }
-    }
-
 //обработчик отправки формы
-  todoForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      addTask();
-      createTaskElement();
+todoForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
+    if (todoInput.value === '') {
+        alert('Нужно ввести задачу');
+    } else {
+        addTask();
+        todoInput.value = '';
+    }
 });
 
-    // Сохранение задач в localStorage
+// Сохранение задач в localStorage
 function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // Для отметки задачи как выполненной
-document.getElementById('todo-list').addEventListener('change', function(e) {
+todoList.addEventListener('change', function (e) {
     if (e.target && e.target.type === 'checkbox') {
         const li = e.target.closest('li');
         if (li) {
@@ -68,32 +46,41 @@ document.getElementById('todo-list').addEventListener('change', function(e) {
                 li.classList.remove('completed');
             }
         }
+
+        const id = parseInt(li.getAttribute('data-id'), 10);
+        let targetTask = tasks.find(task => task.id == id);
+        targetTask.completed = !targetTask.completed;
+        saveTasks();
     }
 });
 
 //добавляем задачу вместе с кнопками
-function createTaskElement() {
-    if (todoInput.value === '') {
-        alert('Нужно ввести задачу');
-       } else {
-        const li = document.createElement('li');
-        li.textContent = todoInput.value;
-        todoList.append(li);
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.placeholder='';
-        checkbox.className = 'form-control';
-        li.append(checkbox);
-        const deleteBtn = document.createElement('Button');
-        deleteBtn.textContent = 'Удалить';
-        deleteBtn.className = 'btn';
-        li.appendChild(deleteBtn);
+function createTaskElement(task) {
+    const li = document.createElement('li');
+    li.textContent = task.text;
+    li.setAttribute('data-id', task.id);
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.placeholder = '';
+    checkbox.className = 'form-control';
+
+    todoList.append(li);
+    li.append(checkbox);
+
+    if (task.completed) {
+        li.classList.add('completed');
+        checkbox.checked = true;
     }
-    todoInput.value = '';
+
+    const deleteBtn = document.createElement('Button');
+    deleteBtn.textContent = 'Удалить';
+    deleteBtn.className = 'btn';
+    li.appendChild(deleteBtn);
 }
 
+
 //создание задачи
-function addTask() { 
+function addTask() {
     if (tasks.length > 0) {
         let maxId = 0;
         for (let task of tasks) {
@@ -103,19 +90,20 @@ function addTask() {
         }
         nextId = maxId + 1;
     }
-saveTasks()
 
-const newTask = {
-    id: nextId, 
-    text: todoInput.value,
-    completed: false,
-}; 
-tasks.push(newTask);
-console.log(tasks);
+    const newTask = {
+        id: nextId,
+        text: todoInput.value,
+        completed: false,
+    };
+
+    tasks.push(newTask);
+    saveTasks();
+    createTaskElement(newTask);
 }
 
 //добавила этот кусок кода-удаление задачи
-document.getElementById('todo-list').addEventListener('click', function(e) {
+todoList.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('btn')) {
         const li = e.target.closest('li');
         if (li) {
@@ -123,6 +111,9 @@ document.getElementById('todo-list').addEventListener('click', function(e) {
             // Удаляем из массива tasks
             tasks = tasks.filter(task => task.id !== id);
             li.remove();
-        }  
+            saveTasks();
+        }
     }
 });
+
+loadTasks();
