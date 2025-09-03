@@ -106,3 +106,75 @@ if (allNines) {digits.unshift(1);
 }
 return digits;
 };
+
+//Решения задач для модуля 1.5
+
+//решение первой задачи
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n) {
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) {
+    result.push("FizzBuzz");
+} else {
+    if (i % 5 === 0) {
+        result.push("Buzz");
+        } else {
+        if (i % 3 === 0) {
+            result.push("Fizz");
+        } else {
+            result.push (i.toString());
+        }
+    }
+    }
+}
+return result;
+};
+
+//решение второй задачи
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    const sign = x >= 0 ? 1 : -1;
+    let absX = Math.abs(x)
+    let str = absX.toString();
+    const reversedStr = str.split('').reverse().join('');
+    const reversedNumber = parseInt(reversedStr, 10) * sign;
+    if (reversedNumber < -2147483648 || reversedNumber > 2147483647) {
+        return 0;
+    }
+    return reversedNumber;
+};
+
+//решение третьей задачи
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+    let counts = {};
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
+    if (counts[char] === undefined) {
+        counts[char] = 1;
+    } else {
+        counts[char] += 1;
+    } 
+    }
+    for (let i = 0; i < s.length; i++) {
+       let char = s[i];
+       if (counts[char] === 1) {
+        return i;
+        }
+    }
+    return -1;
+};
+
+//решение четвертой задачи
+
+//решение пятой задачи
