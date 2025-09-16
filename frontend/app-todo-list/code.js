@@ -2,6 +2,8 @@ let tasks = [];
 const todoInput = document.getElementById("todo-input");
 const todoForm = document.getElementById("todo-form");
 const todoList = document.getElementById("todo-list");
+//спиннер
+const spinner = document.getElementById("spinner");
 
 // Базовый URL API
 const API_BASE = "https://dummyjson.com/todos";
@@ -19,6 +21,8 @@ async function loadTasks() {
     }
   } catch (error) {
     console.error("Ошибка загрузки задач:", error); //если ошибка от сервера
+  } finally {
+    spinner.style.display = "none"; // скрытие спиннера
   }
 }
 
@@ -26,11 +30,10 @@ async function loadTasks() {
 async function addTask() {
   const text = todoInput.value.trim();
   if (!text) {
-    //переменная не пустая, т.е. текст есть.!-отсутствие
     alert("Нужно ввести задачу");
     return;
   }
-
+spinner.style.display = "block";
   try {
     const response = await fetch(API_BASE + "/add", {
       method: "POST",
@@ -43,7 +46,6 @@ async function addTask() {
     });
     const newTask = await response.json();
 
-    // API возвращает поле 'todo' — это текст задачи
     const taskForUI = {
       id: newTask.id,
       todo: newTask.todo,
@@ -55,6 +57,8 @@ async function addTask() {
     todoInput.value = "";
   } catch (error) {
     console.error("Ошибка добавления задачи:", error);
+  } finally {
+    spinner.style.display = "none";
   }
 }
 
