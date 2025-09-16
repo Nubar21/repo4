@@ -36,13 +36,12 @@ body {
 
 .todo__row {
   border-radius: 10%;
-  text-align: center;
   background-color: ivory;
-  width: 50%;
-  height: 500;
   padding: 10px 10px 30px 70px;
   white-space: nowrap;
-  align: center;
+  display: inline-block;
+  width: auto;
+  height: auto;
 }
 
 .checked {
@@ -61,15 +60,15 @@ body {
   text-align: center;
   font-size: 80%;
   background-color: ivory;
-  width: 600px;
+  width: 850px;
   height: 700;
   padding: 20px 30px 30px 70px;
   white-space: nowrap;
   align: center;
-  display: grid;
+  display: flex;
   place-items: center;
   margin-top: 60px;
-  margin-left: 420px;
+  margin-left: 300px;
 }
 
 .btn {
