@@ -10,8 +10,13 @@ const API_BASE = "https://dummyjson.com/todos";
 
 // Загрузка задач с API при запуске
 async function loadTasks() {
+  spinner.style.display = "block";
   try {
     const response = await fetch(API_BASE);
+    //обработка ошибок сети
+    if (!response.ok) {
+      throw new Error(`Ошибка сети: ${response.status} ${response.statusText}`);
+    }
     const data = await response.json();
     tasks = data.todos; // массив задач от API
     console.log(tasks);
@@ -21,6 +26,8 @@ async function loadTasks() {
     }
   } catch (error) {
     console.error("Ошибка загрузки задач:", error); //если ошибка от сервера
+    //обработка ошибок сети
+    alert("Не удалось загрузить задачи. Проверьте соединение с интернетом.");
   } finally {
     spinner.style.display = "none"; // скрытие спиннера
   }
@@ -44,6 +51,10 @@ spinner.style.display = "block";
         userId: 5, // пример userId (можно по желанию)
       }),
     });
+    //обработка ошибок сети
+    if (!response.ok) {
+      throw new Error(`Ошибка сети: ${response.status} ${response.statusText}`);
+    }
     const newTask = await response.json();
 
     const taskForUI = {
@@ -57,6 +68,7 @@ spinner.style.display = "block";
     todoInput.value = "";
   } catch (error) {
     console.error("Ошибка добавления задачи:", error);
+    alert("Не удалось добавить задачу. Проверьте соединение с интернетом."); //обработка ошибок сети
   } finally {
     spinner.style.display = "none";
   }
@@ -70,9 +82,14 @@ async function updateTask(task) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ completed: task.completed }),
     });
+    //обработка ошибок сети
+    if (!response.ok) {
+      throw new Error(`Ошибка сети: ${response.status} ${response.statusText}`);
+    }
     await response.json(); // Можно обработать ответ, если нужно
   } catch (error) {
     console.error("Ошибка обновления задачи:", error);
+    alert("Не удалось обновить задачу. Проверьте соединение с интернетом.");
   }
 }
 
@@ -82,6 +99,10 @@ async function deleteTask(id) {
     const response = await fetch(`${API_BASE}/${id}`, {
       method: "DELETE",
     });
+    //обработка ошибок сети
+    if (!response.ok) {
+      throw new Error(`Ошибка сети: ${response.status} ${response.statusText}`);
+    }
     await response.json();
 
     // Обновляем UI и локальный массив
@@ -90,6 +111,7 @@ async function deleteTask(id) {
     if (li) li.remove();
   } catch (error) {
     console.error("Ошибка удаления задачи:", error);
+    alert("Не удалось удалить задачу. Проверьте соединение с интернетом.");
   }
 }
 
